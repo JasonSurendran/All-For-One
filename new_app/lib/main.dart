@@ -64,10 +64,64 @@ class HomeScreen extends StatelessWidget {
                   "assets/icons/menu.svg"
                   ),
                 ),
+                SizedBox(height: 20),
+                Expanded(
+                  child: Stack(
+                    children: <Widget>[
+                      SvgPicture.asset(
+                        "assets/icons/Drcorona.svg",
+                        width: 230,
+                        fit: BoxFit.fitWidth,
+                        alignment: Alignment.topCenter,
+                      ),
+                      Positioned(
+                        top: 20,
+                        left: 150,
+                        child: Text(
+                          "All you need \nis stay at home",
+                          style: kHeadingTextStyle.copyWith(
+                            color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Container(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            padding:  EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            height: 60,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(
+                color: Color(0xFFE5E5E5),
+                )
+            ),
+            child: Row(
+              children: <Widget>[
+                SvgPicture.asset("assets/icons/maps-and-flags.svg"),
+                Expanded(child: DropdownButton(
+                  items: [
+                    'China', 'India,' 'Canada', 'Japan']
+                    .map<DropdownMenuItem<String>>((String value){
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                      );
+                    }).toList(), 
+                    onChanged: (value){},
+                  )
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
